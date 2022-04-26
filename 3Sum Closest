@@ -1,0 +1,29 @@
+class Solution {
+    public int threeSumClosest(int[] nums, int target) {
+
+        int n = nums.length;
+    Arrays.sort(nums);//-4,-1,1,2
+        int ans = 0;
+        int diff = 1000;
+        for (int i = 0; i < n ; i++) {
+            int j = i + 1,
+            k = n - 1;
+            while (j < k) {
+                int sum = nums[i] + nums[j] + nums[k];//-4-1+3=-5+3=-2
+                if (Math.abs(sum - target) < diff) {
+                    diff = Math.abs(sum - target);
+                    ans = sum;
+                }
+               if (sum < target) {
+                    j++;
+                } 
+                else {
+                    k--;
+                }
+            
+            }
+        }
+        return ans;
+        }
+    }
+//-4,-1,1,2=-1+1+2=2
